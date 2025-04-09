@@ -1,7 +1,8 @@
 .login-button {
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
     margin: 20px;
+    cursor: pointer;
 }
 
 .nav-section {
