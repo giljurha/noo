@@ -15,11 +15,17 @@ const Navbar = () => {
       'Sale',
       '지속가능성',
     ];
-    const nagivate = useNavigate()
+    const navigate = useNavigate();
 
     const goToLogin = () => {
-      nagivate("/login")
+      navigate("/login")
     }
+    const search = (event) => {
+      if(event.key === "Enter") {
+        let keyword = event.target.value;
+        navigate(`/?q=${keyword}`);
+      }
+    };
   return <div>
     <div>
         <div class="login-button" onClick={goToLogin}>
@@ -43,6 +49,7 @@ const Navbar = () => {
       <div>
           <FontAwesomeIcon icon={faSearch} />
           <input className='search-input' type="text" />
+          <input type="text" onKeyDown={(event) => search(event)}/>
       </div>
     </div>
   </div>
