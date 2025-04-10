@@ -35,21 +35,22 @@ const Navbar = () => {
     </div>
     <div className="nav-section">
       <img 
+        className='logo'
         width={100}
-        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTdkl-tdfUNIFDfpFnTaM_EfRy1aJheyur4A&s" />
+        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTdkl-tdfUNIFDfpFnTaM_EfRy1aJheyur4A&s" 
+        onClick={() => navigate("/")}/>
     </div>
     <div className='menu-area'>
       
       <ul className="menu-list">
         {menuList.map((menu) => (
-          <li>{menu}</li>
+          <li onClick={() => navigate("/")}>{menu}</li>
         ))}
       </ul>
       
-      <div>
+      <div className='search-input-container'>
           <FontAwesomeIcon icon={faSearch} />
-          <input className='search-input' type="text" />
-          <input type="text" onKeyDown={(event) => search(event)}/>
+          <input className='search-input' type="text" onKeyDown={(event) => search(event)}/>
       </div>
     </div>
   </div>
