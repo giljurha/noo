@@ -3,8 +3,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-regular-svg-icons';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { useNavigate } from 'react-router-dom';
+import { Container, Row, Col } from 'react-bootstrap';
 
-const Navbar = () => {
+
+const Navbar = ({ authenticate, setAuthenticate }) => {
     const menuList = [
       '여성', 
       'Divided',
@@ -30,7 +32,7 @@ const Navbar = () => {
     <div>
         <div class="login-button" onClick={goToLogin}>
           <FontAwesomeIcon icon={faUser} />
-          <div>로그인</div>
+          <div>{authenticate ? "로그아웃" : "로그인"}</div>
         </div>
     </div>
     <div className="nav-section">
@@ -40,6 +42,7 @@ const Navbar = () => {
         src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTdkl-tdfUNIFDfpFnTaM_EfRy1aJheyur4A&s" 
         onClick={() => navigate("/")}/>
     </div>
+    <Container>
     <div className='menu-area'>
       
       <ul className="menu-list">
@@ -53,6 +56,8 @@ const Navbar = () => {
           <input className='search-input' type="text" onKeyDown={(event) => search(event)}/>
       </div>
     </div>
+    </Container>
+    
   </div>
 }
 

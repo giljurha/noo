@@ -24,6 +24,16 @@ const ProductDetail = () => {
       <Col>
         <div>{product?.title}</div>
         <div>{product?.price}</div>
+        <div>
+            <select>
+              <option value="">-- 사이즈 선택 --</option>
+              {product?.size?.map((size, index) => (
+                <option key={index} value={size}>
+                  {size}
+                </option>
+              ))}
+            </select>
+          </div>
       </Col>
     </Row>
   </Container>
