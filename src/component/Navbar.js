@@ -21,7 +21,12 @@ const Navbar = ({ authenticate, setAuthenticate }) => {
     const navigate = useNavigate();
 
     const goToLogin = () => {
+      if (authenticate) {
+        setAuthenticate(!authenticate);
       navigate("/login")
+      } else {
+        navigate("/login")
+      }
     }
     const search = (event) => {
       if(event.key === "Enter") {
