@@ -49,3 +49,36 @@
 .logo {
     cursor: pointer;
 }
+
+
+.hamburger {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  
+  
+  @media (max-width: 760px) {
+    .hamburger {
+      display: block;
+    }
+  
+    .menu-list {
+      display: none;
+      flex-direction: column;
+      position: relative;
+      top: -70px;
+      left: -170px;
+      right: 0;
+      background-color: white;
+    }
+  
+    .menu-list.open {
+      display: flex;
+    }
+  
+    .menu-list li {
+      padding: 10px 0;
+    }
+  }
