@@ -22,12 +22,12 @@ const ProductDetail = () => {
     console.log(`선택된 사이즈: ${size}`);
   };
   return (
-  <Container className='ml-2'>
+  <Container>
     <Row>
       <Col className="product-img">
         <img src={product?.img}/>
       </Col>
-      <Col>
+      <Col className='mt-3'>
         <div className="mb-4 fs-1">{product?.title}</div>
         <div className="mb-4 fs-2">{new Intl.NumberFormat().format(product?.price)}원</div>
         <div>
