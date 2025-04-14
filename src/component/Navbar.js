@@ -3,9 +3,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-regular-svg-icons';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { useNavigate } from 'react-router-dom';
-import { Container, Row, Col } from 'react-bootstrap';
 import { useState } from "react";
-
+import { Container, Navbar as BsNavbar, Nav } from "react-bootstrap";
 
 const Navbar = ({ authenticate, setAuthenticate }) => {
     const menuList = [
@@ -39,43 +38,52 @@ const Navbar = ({ authenticate, setAuthenticate }) => {
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
-  return <div>
+  return (
     <div>
-    <div>
-        <div class="login-button" onClick={goToLogin}>
-          <FontAwesomeIcon icon={faUser} />
-          <div>{authenticate ? "로그아웃" : "로그인"}</div>
-        </div>
-    </div>
-    <button className="hamburger" onClick={toggleMenu}>
-        ☰
-      </button>
-    <div className="nav-section">
-      <img 
-        className='logo'
-        width={100}
-        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTdkl-tdfUNIFDfpFnTaM_EfRy1aJheyur4A&s" 
-        onClick={() => navigate("/")}/>
-    </div>
-    </div>
-    <Container>
-    
-    <div className='menu-area'>
-    
-      <ul className={`menu-list ${menuOpen ? "open" : ""}`}>
-        {menuList.map((menu) => (
-          <li onClick={() => navigate("/")}>{menu}</li>
-        ))}
-      </ul>
-      
-      <div className='search-input-container'>
-          <FontAwesomeIcon icon={faSearch} />
-          <input className='search-input' type="text" onKeyDown={(event) => search(event)}/>
+      <div className="login-button" onClick={goToLogin}>
+            <FontAwesomeIcon icon={faUser} />
+            <span>{authenticate ? "로그아웃" : "로그인"}</span>
       </div>
+    <BsNavbar expand="lg" className="navbar">
+      <Container>
+        <img
+          className="logo"
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTdkl-tdfUNIFDfpFnTaM_EfRy1aJheyur4A&s"
+          alt="Logo"
+          onClick={() => navigate("/")}
+        />
+        <BsNavbar.Toggle
+          aria-controls="basic-navbar-nav"
+          onClick={toggleMenu}
+        >
+        </BsNavbar.Toggle>
+        
+        <BsNavbar.Collapse id="basic-navbar-nav" in={menuOpen}>
+          <Nav className="me-auto menu-list">
+            {menuList.map((menu) => (
+              <Nav.Link key={menu} onClick={() => navigate("/")}>
+                {menu}
+              </Nav.Link>
+            ))}
+          </Nav>
+          <div className="search-input-container">
+            <FontAwesomeIcon icon={faSearch} />
+            <input
+              className="search-input"
+              type="text"
+              onKeyDown={search}
+              placeholder="검색"
+            />
+          </div>
+          
+        </BsNavbar.Collapse>
+        
+      </Container>
+      
+    </BsNavbar>
+      
     </div>
-    </Container>
-    
-  </div>
+  )
 }
 
 export default Navbar

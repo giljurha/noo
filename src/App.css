@@ -35,6 +35,10 @@
     transform: scale(1.1);
     z-index: 1;
     cursor: pointer;
+    
+}
+.card {
+  margin-bottom: 20px;
 }
 
 .product-img {
@@ -42,42 +46,27 @@
     justify-content: flex-end;
 }
 
-.search-input-container {
-    margin-left: 100px;
-}
-
 .logo {
     cursor: pointer;
 }
 
 
-.hamburger {
+@media (max-width: 768px) {
+
+  .search-input-container {
+    margin-top: 10px;
+  }
+
+  .search-input {
+    width: 100%;
+  }
+
+  .login-button span {
     display: none;
-    background: none;
-    border: none;
-    cursor: pointer;
+  }
+
+  .search-input-container svg {
+    display: none;
   }
   
-  
-  @media (max-width: 760px) {
-    .hamburger {
-      display: block;
-    }
-  
-    .menu-list {
-      display: none;
-      flex-direction: column;
-      position: relative;
-      top: -70px;
-      left: -110px;
-      background-color: white;
-    }
-  
-    .menu-list.open {
-      display: flex;
-    }
-  
-    .menu-list li {
-      padding: 10px 0;
-    }
-  }
+}
