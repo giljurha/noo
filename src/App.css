@@ -47,6 +47,10 @@
     cursor: pointer;
 }
 
+.login-size {
+  width: 800px !important;
+}
+
 
 @media (max-width: 1100px) {
 
