@@ -22,7 +22,7 @@ const ProductDetail = () => {
     console.log(`선택된 사이즈: ${size}`);
   };
   return (
-  <Container>
+  <Container className='ml-2'>
     <Row>
       <Col className="product-img">
         <img src={product?.img}/>
