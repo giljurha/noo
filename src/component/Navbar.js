@@ -1,7 +1,7 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-regular-svg-icons';
-import { faSearch, faHome } from '@fortawesome/free-solid-svg-icons';
+import { faSearch, faHome, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
 import { useNavigate } from 'react-router-dom';
 import { useState } from "react";
 import { Container, Navbar as BsNavbar, Nav } from "react-bootstrap";
@@ -106,7 +106,7 @@ const Navbar = ({ authenticate, setAuthenticate }) => {
             </div>
 
             <div className="login-button" onClick={goToLogin} role="button" tabIndex={0}>
-              <FontAwesomeIcon icon={faUser} />
+              <FontAwesomeIcon icon={authenticate ? faSignOutAlt : faUser} />
               <span>{authenticate ? "로그아웃" : "로그인"}</span>
             </div>
           </div>
